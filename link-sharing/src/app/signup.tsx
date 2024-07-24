@@ -1,22 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Implement your login logic here
-  };
-
+const SignUp = () => {
   return (
     <>
-      <div className="bg-light_purp h-screen font-Instrument_Sans flex justify-center items-center">
+      <div className="bg-light_purp min-h-screen pb-32 pt-6 font-Instrument_Sans flex justify-center items-center">
         <div className="  w-[476px] h-[573px] mx-auto">
           <div className="bg-light_purp flex gap-2 items-center pb-[51px] justify-center">
             <Image
@@ -30,12 +20,14 @@ const Login = () => {
 
           <div className=" mx-auto rounded-xl  bg-white">
             <div className=" p-[40px]">
-              <h1 className="text-dark text-[32px] font-bold">Login</h1>
+              <h1 className="text-dark text-[32px] font-bold">
+                Create account
+              </h1>
               <p className="text-base text-light_purp">
                 Add your details to ge back into the app
               </p>
             </div>
-            <form className="px-[40px]" action="" onSubmit={handleLogin}>
+            <form className="px-[40px]" action="">
               <div className="px-[40px">
                 <label className="block text-dark text-[12px]" htmlFor="Email">
                   Email address
@@ -52,16 +44,18 @@ const Login = () => {
                     className=" placeholder:pl-5 py-3 px-4 rounded-lg border border-light_purp w-full"
                     type="email"
                     placeholder="e.g. alex@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={""}
                   />
                 </div>
               </div>
+
+              {/* Creating password */}
+
               <div className="pt-6">
                 <label
                   className="block text-dark text-[12px]"
                   htmlFor="Password">
-                  Password
+                  Create Password
                 </label>
                 <div className="relative">
                   <Image
@@ -74,21 +68,49 @@ const Login = () => {
                   <input
                     className=" placeholder:pl-5 py-3 px-4 rounded-lg border border-light_purp w-full"
                     type="password"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="At least 8 Characters"
+                    value={""}
                   />
                 </div>
               </div>
+
+              {/* confirm password */}
+
+              <div className="pt-6">
+                <label
+                  className="block text-dark text-[12px]"
+                  htmlFor="Password">
+                  Confirm Password
+                </label>
+                <div className="relative">
+                  <Image
+                    className="absolute top-4 left-3"
+                    src={"/password.svg"}
+                    alt={"password icon"}
+                    width={12}
+                    height={13}
+                  />
+                  <input
+                    className=" placeholder:pl-5 py-3 px-4 rounded-lg border border-light_purp w-full"
+                    type="password"
+                    placeholder="At least 8 Characters"
+                    value={""}
+                  />
+                </div>
+              </div>
+
+              <p className="pb-0 pt-6 text-[12px] text-deep_ash">
+                Password must contain at least 8 characters
+              </p>
               <button
                 className="rounded-lg bg-deep_blue text-white px-[27px] py-[11px] w-full mt-[24px]"
                 type="submit">
-                Login
+                Create an account
               </button>
               <p className="text-[16px] text-center pt-[24px] pb-[40px] text-norm_purp ">
-                Don't have an account?{" "}
-                <Link className="text-deep_blue" href="#">
-                  Create account
+                Already have an account?
+                <Link className="text-deep_blue" href="/login">
+                  Login
                 </Link>
               </p>
             </form>
@@ -99,4 +121,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
